@@ -1,0 +1,86 @@
+<div ng-include src="'templates_view/headerCompany.html'"></div>
+
+<div class="bglogindiv">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-7" style="margin-left: -20px;">
+
+            <div class="form-box">
+                <div class="form-top" style="background: rgba(0, 0, 0, 0.35);">
+                    <div class="form-top-left">
+                        <h3>Edit your details</h3>
+                    </div>
+                </div>
+                <div class="form-bottom" style="background: rgba(0, 0, 0, 0.3);margin-bottom: 80px;">
+                    <form role="form" class="registration-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-first-name">Company name</label>
+                            <input ng-model="companyInfo.name" type="text" name="form-first-name" placeholder="Company name..." class="form-first-name form-control" id="form-first-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-last-name">Website</label>
+                            <input ng-model="companyInfo.website" type="text" name="form-last-name" placeholder="Website..." class="form-last-name form-control" id="form-last-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-last-name">Contact Email</label>
+                            <input ng-disabled="true" ng-model="companyInfo.email" type="text" name="form-last-name" placeholder="Contact Email..." class="form-last-name form-control" id="form-last-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-email">Address</label>
+                            <input ng-model="companyInfo.address" type="text" name="form-email" placeholder="Address..." class="form-email form-control" id="form-email">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-about-yourself">Description</label>
+                            <textarea ng-model="companyInfo.description" name="form-about-yourself" placeholder="About the company..."
+                                      class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+                        </div>
+                        <button class="btn btn-primary" ng-click="updateCompanyProfile()">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="picImagediv">
+                        <span class="" style="border-radius: 50%">
+                            <div>
+                                <img  style="max-width: none;" alt="" ng-src="{{companyInfo.imageUrl}}" class="profilePicStyle">
+                            </div>
+
+                        </span>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <button type="file" ngf-select ng-model="companyInfo.imageUrl" name="file"
+                      accept="image/*" ngf-max-size="2MB" required
+                      ngf-model-invalid="errorFile"   ngf-pattern="'.jpg,.png,.jpeg'"  class="btn btn-default btn-block changepicButton"  ><strong style="word-break: break-all;"><strong>Change Logo</strong></strong></button>
+
+            <i class=" upload-required" ng-show="editImageForm.file.$error.required">*required</i><br>
+            <i class=" upload-error" ng-show="editImageForm.file.$error.pattern">File should be of the format *.jpg *.png *.jpeg</i><br>
+            <i class=" upload-error" ng-show="editImageForm.file.$error.maxSize">File too large
+                {{errorFile.size / 1000000|number:1}}MB: <ma>z</ma>x 2M</i>
+
+
+            <div class="col-sm-12 field-margin">
+                <button type="submit" style=" width: 150px;margin-left: -22px;height: 30px;margin-bottom: 4px;margin-top: -74px;;"
+                        class="btn btn-primary btnLayout"  ng-click="uploadLogo(companyInfo.imageUrl)">Upload</button>
+            </div>
+
+            <div ng-show="showLogoButton">
+                <br>
+                <button class="savepicButton btn  btn-default btn-block " style="   margin-top: -60px;" ng-click="savePic()"><strong>Save New Logo</strong></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

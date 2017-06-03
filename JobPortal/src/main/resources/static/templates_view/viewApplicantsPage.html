@@ -1,0 +1,212 @@
+<div ng-include src="'templates_view/headerCompany.html'"></div>
+
+<div class="applicationBgDiv"></div>
+<div class="error-msg" ng-hide="error">
+    <strong>There was some problem while submitting. Try Agaon !</strong>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7 openingPanel">
+        <div class="panel-body applicationPaddingHorizontal-0">
+            <div class="row">
+                <div id="companyImage" class="col-md-3 applicationImageDiv">
+                    <!--<img alt=""	ng-src="{{property.hostProfilePic}}" class="applicationImageStyle">-->
+                    <img alt=""	ng-src="{{opening.imageUrl}}" class="applicationImageStyle">
+                </div>
+
+                <div id="jobDescription" class="col-md-9 applicationDescDiv">
+                    <div class="col-md-7">
+                        <span class="jobName">{{opening.title}}</span>
+                    </div>
+                    <div class="col-md-5">
+                        <span>
+                            <span class="jobName">
+                                <!--{{opening.title}}-->
+                                Status:
+                            </span>
+                            <span class="jobName" style="margin-left: 2px">
+                                <!--{{opening.title}}-->
+                                {{opening.openingStatus}}
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div id="" class="col-md-9 applicationDescDiv">
+                    <div class="col-md-12 applicationDescription" style="height: 30px;">
+                        <span class="pull-left">{{opening.company}}</span>
+                    </div>
+                    <div class="col-md-12 " style="height: 30px;">
+                        <span class="pull-left">{{opening.location}}</span>
+                    </div>
+                    <div class="col-md-12 " style="height: 30px;">
+                        <span class="pull-left">Posted on: {{opening.date  | date:'MM-dd-yyyy'}}</span>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <!--<div ng-if="opening.status == 'Open" class="col-md-4 applicationDescDiv" style="top: 45px;">-->
+                    <div class="col-md-4 applicationDescDiv" style="top: 45px;" ng-if="(opening.openingStatus != 'CANCELLED') && (opening.openingStatus != 'FILLED') ">
+                        <button type="button" class="btn btn-danger pull-left"   ng-click="cancelPosting(opening.id)">Cancel Job Posting</button>
+                    </div>
+                    <!--<div ng-hide="applyresumebutton"class="col-md-4 applicationDescDiv" style="top: 45px;">-->
+                    <!--<button type="button" data-toggle="modal" data-target="#attachResume"  class="btn btn-warning pull-left" >Apply with Resume</button>-->
+                    <!--</div>-->
+
+                    <!--<div ng-hide="applyresumebutton"class="col-md-4 applicationDescDiv" style="top: 45px;">
+                        <button type="button"  class="btn btn-warning pull-left"  ng-click="applywith()">Apply with Resume</button>
+                    </div>
+
+                    <div ng-show="showResumeTemplate" >
+                        <button type="file" ngf-select ng-model="resumeObj" name="resumeObj" style="height: 30px;"
+                                ngf-max-size="4MB" required
+                                ngf-model-invalid="errorFile"   ngf-pattern="'.doc,.pdf,.docx'" > Browse Resume </button>
+
+                        <div class="col-sm-12 field-margin">
+                            <button type="submit" style=" width: 100px; margin-left:400px;height: 30px;margin-bottom: 4px;margin-top: 4px;"
+                                    class="btn btn-primary btnLayout"  ng-click="uploadResume(resumeObj)">Upload</button>
+                        </div>
+
+
+
+                        <div class="col-sm-12 field-margin">
+                            <button type="submit" style=" width: 100px; margin-left:400px;height: 30px;"
+                                    class="btn btn-primary btnLayout" ng-disabled="changeStatus" ng-click="applyWithResume()">Apply</button>
+                        </div>
+
+                    </div>-->
+
+
+
+                    <div ng-show="alreadyApplied" class="col-md-4 applicationDescDiv" style="top: 45px;">
+                        <button type="button" data-toggle="modal" data-target="#attachResume" disabled class="btn btn-primary pull-left">Applied</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7 applicationPanel" style="text-align: left;background-color: white">
+        <div class="pull-left col-md-12">
+            <div class="col-md-12 jobDetailHeader">Job Description</div>
+            <div class="col-md-12">
+                <span>{{opening.description}}</span>
+            </div>
+        </div>
+        <hr/>
+        <div class="pull-left col-md-12">
+            <div class="col-md-12 jobDetailHeader">Responsibilites</div>
+            <div class="col-md-12">
+                <span>{{opening.responsibilites}}</span>
+            </div>
+        </div>
+        <hr/>
+        <div class="pull-left col-md-12">
+            <div class="col-md-12 jobDetailHeader">Salary Offered</div>
+            <div class="col-md-12">
+                <span>{{opening.minSalary}} - {{opening.maxSalary}}</span>
+            </div>
+        </div>
+
+        <div class="pull-left col-md-12">
+            <div class="col-md-12 jobDetailHeader">
+                <button class="btn btn-large btn-warning" ng-click="showApplicants()">{{applicantButtonText}}</button>
+            </div>
+            <div ng-if="viewApplicantsBtn">
+                <!--INSERT ng-repeat below-->
+                <div class="row" ng-repeat="applicant in applicants">
+                    <div class="col-md-12" style="margin-top: 5px;margin-bottom: 5px;">
+                        <div class="col-md-4 pull-left">
+                            <span class="pull-left">{{applicant.applicantInfo.firstName}} {{applicant.applicantInfo.lastName}}</span>
+                        </div>
+                        <div class="col-md-4 pull-left">
+                            <span class="">{{applicant.applicationStatuscustom}}</span>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary pull-right" ng-click="openApplicantProfile(applicant)" >Visit Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<!--<button ng-click='toggleModal()'>Open Modal Dialog</button>-->
+<modal-dialog show='modalShown' width='auto' height='auto'>
+
+        <div class="col-md-12">
+        <div class="col-md-3" ng-if="applicant.status === 'Pending'">
+            <span><button class="btn btn-success" ng-click="giveOffer(applicant.applicationId)">Give Offer</button></span>
+        </div>
+        <div class="col-md-3" ng-if="applicant.status === 'Pending'">
+            <span><button class="btn btn-danger" ng-click="rejectApplicant(applicant.applicationId)">Reject Applicant</button></span>
+        </div>
+        <div class="col-md-3" ng-if="applicant.status === 'Pending' && applicant.resume != null">
+            <span><a class="btn btn-warning" ng-href="{{applicant.resume}}">View Resume</a></span>
+        </div>
+        <div class="col-md-3">
+            <span><a class="btn btn-primary" ng-click="scheduleInterview()" ng-hide="hideScheduleButton">Schedule Interview</a></span>
+        </div>
+        </div>
+
+
+
+    <div ng-hide="applicantinfo">
+        <div>
+            <div class="col-md-3"></div>
+            <div style="padding-left: 15%;" class="col-md-6"><h2><strong>{{applicant.firstName}} {{applicant.lastName}}</strong></h2></div>
+            <div class="col-md-3"></div>
+        </div>
+        <hr />
+        <div class="col-md-12">
+            <div class="col-md-12"><h3><b><u>Introduction</u></b></h3></div>
+            <div class="col-md-12">{{applicant.introduction}}</div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12"><h3><b><u>Experience</u></b></h3></div>
+            <div class="col-md-12">{{applicant.experience}}</div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12"><h3><b><u>Education</u></b></h3></div>
+            <div class="col-md-12">{{applicant.education}}</div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12"><h3><b><u>Skills</u></b></h3></div>
+            <div class="col-md-12">{{applicant.skills}}</div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-12"><h3><b><u>Application Status</u></b></h3></div>
+            <div class="col-md-12">{{applicant.status}}</div>
+        </div>
+    </div>
+
+    <div ng-show="interviewInfor">
+        <div class="col-md-12">
+            <input  class="form-control" ng-model="location" placeholder="Location.." type="text">
+        </div>
+       <br>
+
+        <div class="col-md-12">
+            <input  class="form-control" ng-model="interviewDate" placeholder="Date&Time" type="date">
+        </div>
+            <br>
+        <div class="col-md-12">
+            <input  class="form-control" ng-model="startTime" placeholder="Start Time" type="time">
+        </div>
+
+        <div class="col-md-12">
+            <input  class="form-control" ng-model="endTime" placeholder="End Time" type="time">
+        </div>
+
+        <div class="col-md-4">
+            <span><a class="btn btn-primary" ng-click="schedule(location,interviewDate,startTime,endTime,applicant.applicationId)" ng-hide="scheduleButton">Schedule</a></span>
+        </div>
+
+    </div>
+</modal-dialog>

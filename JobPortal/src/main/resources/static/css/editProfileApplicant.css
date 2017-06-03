@@ -1,0 +1,44 @@
+.profilePicStyle{
+
+
+    height: 125px;
+    width: 300px;
+    border-radius: 50%;
+    margin-left: 150px;
+    margin-top: 60px;
+    width: 140px;
+
+
+}
+.changepicButton{
+    background-color: #9C27B0;
+
+    border-style:solid;
+    border-width: 2px;
+    background-color: white;
+    width: 150px;
+    margin-top: 200px;
+    margin-left: 140px;
+}
+.savepicButton{
+    background-color: #9C27B0;
+
+    border-style:solid;
+    border-width: 2px;
+    background-color: white;
+    width: 150px;
+    margin-top: -70px;
+    margin-left: 140px;
+}
+
+.picImagediv{
+
+    float: left;
+    width: 25%;
+    padding-top: 5px;
+    font-size: 66px;
+    color: #fff;
+    line-height: 100px;
+    text-align: right;
+
+}

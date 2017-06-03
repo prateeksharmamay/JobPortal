@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>JobPortal</title>
+
+
+    <!-- LIBRARIES-->
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.8/angular-messages.js"></script>
+    <!-- ui bootstrap/sliding range bar  -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angularjs-slider/2.8.0/rzslider.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/angularjs-slider/2.8.0/rzslider.css" />
+    <!-- image upload  -->
+    <script type="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="https://unpkg.com/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.js"></script>
+
+    <!--Pagination-->
+    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+
+
+    <!-- CUSTOM CSS-->
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel='stylesheet' href='css/headerStyle.css' />
+    <link rel='stylesheet' href='css/applicantDashboardStyle.css' />
+    <link rel='stylesheet' href='css/jobApplicationPageStyle.css' />
+    <link rel='stylesheet' href='css/jobSearchPageStyle.css' />
+    <link rel='stylesheet' href='css/individualListingStyle.css' />
+    <link rel='stylesheet' href='css/editProfileApplicant.css' />
+    <link rel='stylesheet' href='css/myApplications.css' />
+    <link rel='stylesheet' href='css/viewApplicantsPage.css' />
+
+
+
+    <!-- CUSTOM JS-->
+    <script src="js/main.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/applicantDashboardController.js"></script>
+    <script src="js/controllers/companyDashboardController.js"></script>
+    <script src="js/controllers/jobSearchPageController.js"></script>
+    <script src="js/controllers/profilePageController.js"></script>
+    <script src="js/controllers/myApplicationsPageController.js"></script>
+    <script src="js/controllers/interestedJobPageController.js"></script>
+    <script src="js/controllers/interviewSchedulePageController.js"></script>
+    <script src="js/controllers/jobApplicationPageController.js"></script>
+    <script src="js/controllers/headerApplicantController.js"></script>
+    <script src="js/controllers/companyPostingsPageController.js"></script>
+    <script src="js/controllers/createPostingPageController.js"></script>
+    <script src="js/controllers/companyProfilePageController.js"></script>
+    <script src="js/controllers/companyLoginController.js"></script>
+    <script src="js/controllers/myApplicationsPageDecisionAvailableController.js"></script>
+    <script src="js/controllers/editPostingPageController.js"></script>
+    <script src="js/controllers/myApplicationsPageCompletedController.js"></script>
+    <script src="js/controllers/headerCompanyController.js"></script>
+    <script src="js/controllers/viewApplicantsPageController.js"></script>
+    <script src="js/controllers/showInterviewsController.js"></script>
+
+
+    <!-- Services -->
+	<script type="text/javascript" src="services/loginService.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.7.0/metisMenu.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.js">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="stylesheet" href="https://unpkg.com/angular-toastr/dist/angular-toastr.css" />
+
+</head>
+
+
+<body ng-app="jobportal" class="body-dashboard">
+
+<div ui-view ></div>
+
+</body>
+
+</html>
+

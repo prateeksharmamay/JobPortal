@@ -1,0 +1,48 @@
+
+<div ng-include src="'templates_view/headerCompany.html'"></div>
+<div class="container-fluid text-center bglogindiv">
+<div class="col-md-12" style="    margin-left: -25px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-7 applicantPageHead"><span style="color: ghostwhite">Scheduled Interviews</span></div>
+    <div class="col-md-3"></div>
+</div>
+<div class="col-md-2"></div>
+<div class="col-md-7 applicationPanel">
+    <div class="panel panel-default applicationDiv" >
+
+        <div class="panel-body applicationPaddingHorizontal-0">
+            <table class="table table-striped">
+                <thead class="text-center">
+                <tr>
+                    <th style="text-align: center;">Applicant Email</th>
+                    <th style="text-align: center;">Status</th>
+                    <th style="text-align: center;">Location</th>
+                </tr>
+                </thead>
+                <tbody class="text-center">
+                <tr ng-repeat="inter in interviews.ScheduledInterviews">
+                    <td> {{interviews.email[$index]}}</td>
+                    <td>
+                        <div class="col-md-12" style="text-align: left"
+                             style="" ng-if="inter.terminated && !inter.applicantConfirmed">
+                            <span style="margin-left: 100px;">Rejected Invitation</span>
+                        </div>
+                        <div class="col-md-12" style="text-align: left"
+                             style="" ng-if="inter.terminated && inter.applicantConfirmed">
+                            <span style="margin-left: 100px;">Accepted Invitation</span>
+                        </div>
+                        <div class="col-md-12" style="text-align: left"
+                             style="" ng-if="!inter.terminated">
+                            <span style="margin-left: 100px;">Invitation Pending</span>
+                        </div>
+                    </td>
+                    <td>{{inter.location}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="col-md-3"></div>
+</div>
+

@@ -1,0 +1,68 @@
+<div ng-include src="'templates_view/headerLoginPageCompany.html'"></div>
+
+<div class="bglogindiv" style="height: inherit;">
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-5" style="margin-left: -20px;">
+
+            <div class="form-box">
+                <div class="form-top" style="background: rgba(0, 0, 0, 0.35);">
+                    <div class="form-top-left">
+                        <h3>Be great at what you do</h3>
+                        <p>Get Started - its free</p>
+                    </div>
+                    <div class="form-top-right">
+                        <i class="fa fa-pencil"></i>
+                    </div>
+                </div>
+                <div class="form-bottom" style="background: rgba(0, 0, 0, 0.3);margin-bottom: 80px;">
+                    <form role="form" class="registration-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-first-name">Company name</label>
+                            <input ng-model="company.name" type="text" name="form-first-name" placeholder="Company name..." class="form-first-name form-control" id="form-first-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-last-name">Website</label>
+                            <input ng-model="company.website" type="text" name="form-last-name" placeholder="Website..." class="form-last-name form-control" id="form-last-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-last-name">Contact Email</label>
+                            <input ng-model="company.email" type="text" name="form-last-name" placeholder="Contact Email..." class="form-last-name form-control" id="form-last-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-last-name">Password</label>
+                            <input ng-model="company.password" type="password" name="form-last-name" placeholder="Password..." class="form-last-name form-control" id="form-last-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-email">Address</label>
+                            <input ng-model="company.address" type="text" name="form-email" placeholder="Address..." class="form-email form-control" id="form-email">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-about-yourself">Description</label>
+                            <textarea ng-model="company.description" name="form-about-yourself" placeholder="About the company..."
+                                      class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+                        </div>
+
+                        <div class="form-group">
+
+                            <!--<label class="sr-only" for="form-about-yourself">Upload Logo</label>-->
+                            <!--<span style="color: white">Upload logo</span>-->
+                            <!--<button type="file" ngf-select ng-model="company.imageUrl" name="file"-->
+                                    <!--accept="image/*" ngf-max-size="2MB" required-->
+                                    <!--ngf-model-invalid="errorFile"   ngf-pattern="'.jpg,.png,.jpeg'">Choose Photo</button>-->
+                        <!--</div>-->
+
+
+
+                        <button type="submit" class="btn btn-primary" ng-click="register()">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+</div>
+
+
+

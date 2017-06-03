@@ -1,0 +1,37 @@
+<nav ng-controller="headerApplicantController" class="navbar navbar-default min-height-30" data-spy="affix"
+     data-offset-top="10" style="margin-bottom: 0px;height: 52px;">
+    <div class="container-fluid" style="background-color: #283e4a;height: 52px;">
+        <ul class="nav navbar-nav header-list-padding">
+            <li class="margin-left-140">
+                <a ui-sref="applicantDashboard" style="padding-top: 0px">
+                    <!--<img src="../images/jpbak.png" height="50px" width="50px" alt="">-->
+                    <img src="../images/jpbak.png" class="logoimage">
+                </a>
+            </li>
+            <li>
+                <form class="navbar-form" role="search">
+                    <div class="input-group add-on">
+                        <input class="form-control" ng-model="searchJobText" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                    </div>
+                </form>
+
+                <button  style="margin-left: 209px;margin-top: -42px;" class="btn btn-primary" ng-click="searchJob()"><span style="height:20px" class="glyphicon glyphicon-search" aria-hidden="true" ></span></button>
+
+            </li>
+
+            <li class="dropdown margin-left-550" style="top: 4px;">
+                <a id="profileDropdown" class="dropdown-toggle text-white" data-toggle="dropdown" href="" style="line-height:35px;">
+                    {{email}} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a ui-sref="profilePage">Profile</a></li>
+                    <li><a ui-sref="myApplicationsPage">My Applications</a></li>
+                    <li><a ui-sref="interestedJobPage">Jobs of my Interest</a></li>
+                    <li><a ui-sref="interviewSchedulePage">Interview Schedule</a></li>
+                </ul>
+            <li>
+                <button style="margin-top: 8px;" class="btn btn-primary" ng-click="logout()">Logout</button>
+            </li>
+        </ul>
+    </div>
+</nav>

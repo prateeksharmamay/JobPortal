@@ -1,0 +1,77 @@
+<div ng-include src="'templates_view/headerApplicant.html'"></div>
+
+
+<div class="container-fluid text-center bglogindiv" style="height: inherit;">
+    <div class="col-md-12" style="    margin-left: -25px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 applicantPageHead"><span style="color:white">Interview Details</span></div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-7 applicationPanel">
+        <!--INSERT JOBS ARRAY FOR ng-repeat HERE-->
+        <!--<div class="panel panel-default applicationDiv" ng-repeat="opening in openingsList | filter:{'status':'OPEN'}">-->
+        <div class="panel panel-default applicationDiv"  dir-paginate="opening in openingsList | itemsPerPage:5">
+
+            <div class="panel-body applicationPaddingHorizontal-0">
+                <div class="row">
+                    <div id="companyImage" class="col-md-3 applicationImageDiv">
+                        <!--<img alt=""	ng-src="{{property.hostProfilePic}}" class="applicationImageStyle">-->
+                        <img alt=""	 ng-src="{{logoList[$index]}}" class="applicationImageStyle">
+                    </div>
+
+                    <div id="jobDescription" class="col-md-9 applicationDescDiv">
+                        <div class="col-md-4">
+                            <a> <span class="jobName">{{opening.title}}</span>
+                            </a>
+                        </div>
+                        <div class="col-md-4 applicationDescDiv"
+                             style="" ng-if="!openingsInterviewDetails[$index].interviewSchedule.terminated">
+                            <button type="button" class="btn btn-success pull-left" ng-click="acceptInterviewRequest(openingsInterviewDetails[$index].application_id)">Accept Invitation</button>
+                        </div>
+                        <div class="col-md-4 applicationDescDiv"
+                             style="" ng-if="!openingsInterviewDetails[$index].interviewSchedule.terminated">
+                            <button type="button" class="btn btn-danger pull-left" ng-click="rejectInterviewRequest(openingsInterviewDetails[$index].application_id)">Reject Invitation</button>
+                        </div>
+                    </div>
+                    <div id="" class="col-md-9 applicationDescDiv">
+                        <!--<div class="col-md-12 applicationDescription" style="height: 30px;">-->
+                        <!--<span class="pull-left">{{opening.responsibilities | limitTo: 4}}</span>-->
+                        <!--</div>-->
+                        <div class="col-md-12 " style="height: 50px;text-align: left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                            {{opening.description | limitTo:500}}<br>
+                        </div>
+                        <div class="col-md-12 " style="height: 50px;text-align: left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                            Interview Timing: {{openingsInterviewDetails[$index].interviewSchedule.startDate | date:'yyyy-MM-dd HH:mm:ss'}} TILL {{openingsInterviewDetails[$index].interviewSchedule.endDate | date:'yyyy-MM-dd HH:mm:ss'}}
+                        </div>
+                        <div class="col-md-12 " style="height: 50px;text-align: left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                            Interview Location: {{openingsInterviewDetails[$index].interviewSchedule.location}}
+                        </div>
+                        <div class="col-md-12" style="text-align: left"
+                             style="" ng-if="openingsInterviewDetails[$index].interviewSchedule.terminated && !openingsInterviewDetails[$index].interviewSchedule.applicantConfirmed">
+                            <span>Status : You Rejected Invitation</span>
+                        </div>
+                        <div class="col-md-12" style="text-align: left"
+                             style="" ng-if="openingsInterviewDetails[$index].interviewSchedule.terminated && openingsInterviewDetails[$index].interviewSchedule.applicantConfirmed">
+                            <span>Status : You Accepted Invitation</span>
+                        </div>
+                        <div class="col-md-12" style="text-align: left"
+                             style="" ng-if="!openingsInterviewDetails[$index].interviewSchedule.terminated">
+                            <span>Status : Invitation Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-12">
+        <dir-pagination-controls
+                max-size="5"
+                direction-links="true"
+                boundary-links="true" >
+        </dir-pagination-controls>
+    </div>
+
+</div>

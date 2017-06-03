@@ -1,0 +1,65 @@
+<nav  class="navbar navbar-default min-height-30" data-spy="affix"
+      data-offset-top="10" style="margin-bottom: 0px;height: 52px;">
+    <div class="container-fluid" style="background-color: #283e4a;height: 52px;">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="../images/jpbak.png" class="logoimage">
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <div style="padding-top: 15px; padding-left: 200px;font-size: 16px;">
+                    <a ui-sref="loginCompany" style="color:white">Are you an Employer?</a>
+                </div>
+            </ul>
+            <form id="signin" class="navbar-form navbar-right" role="form">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="email" type="email" class="form-control" name="email" ng-model="inputUsername" value="" placeholder="Email Address">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="password" type="password" class="form-control" name="password" ng-model="inputPassword"  value="" placeholder="Password">
+                </div>
+
+                <button class="btn btn-primary" ng-click="login(inputUsername, inputPassword)">Login</button>
+            </form>
+
+        </div>
+    </div>
+</nav>
+
+
+
+
+<!--<nav  class="navbar navbar-default min-height-30" data-spy="affix"-->
+     <!--data-offset-top="10" style="margin-bottom: 0px;height: 52px;">-->
+    <!--<div class="container-fluid" style="background-color: #283e4a;height: 52px;">-->
+        <!--<ul class="nav navbar-nav header-list-padding">-->
+            <!--<li class="margin-left-140">-->
+                <!--<a ui-sref="applicantDashboard" style="padding-top: 0px">-->
+                    <!--<img src="../images/jpbak.png"class="logoimage">-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<form class="navbar-form" role="search">-->
+                   <!--<input type = "email" placeholder="Email" ng-model="userName" autofocus="autofocus">-->
+                    <!--<input type = "password" placeholder="password" ng-model="password" autofocus="autofocus">-->
+                    <!--<button style="margin-top: 8px;" class="btn btn-default" ng-click="">Login</button>-->
+                <!--</form>-->
+            <!--</li>-->
+
+            <!--<li>-->
+                <!--<button style="margin-top: 8px;" class="btn btn-primary" ng-click="">Are you an Employer?</button>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</nav>-->

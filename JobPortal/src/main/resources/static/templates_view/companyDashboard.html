@@ -1,0 +1,101 @@
+<div ng-include src="'templates_view/headerCompany.html'"></div>
+
+
+<div class="container-fluid text-center bglogindiv" style="height: inherit;">
+    <div class="col-md-12" style="    margin-left: -25px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 applicantPageHead"><span style="color:white">Your Postings</span></div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="col-md-12" style="    margin-left: -25px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 ">
+            <a id="statusDropdown" class="dropdown-toggle text-white pull-left btn btn-info btn-link" data-toggle="dropdown" href="" style="line-height:35px;">
+                Select Status for Openings: <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ng-click="filterJobs(postingTemp.openingStatus)" ng-repeat="postingTemp in postings  | unique:'openingStatus'"><span class="btn">{{postingTemp.openingStatus}}</span></li>
+                <!--<li><span class="btn" ng-click="filterOpenings('open')">Open</span></li>
+                <li><span class="btn" ng-click="filterOpenings('cancelled')">Cancelled</span></li>
+                <li><span class="btn" ng-click="filterOpenings('filled')">Filled</span></li>-->
+            </ul>
+            <!--<select class="dropdown-menu" ng-model="selectedStatus" ng-options="posting.openingStatus for posting in postings | unique:'openingStatus'">
+                <option value="0">Default</option>
+                &lt;!&ndash;<option value="{{$index}}">{{posting.openingStatus}}</option>&ndash;&gt;
+                &lt;!&ndash;// unique options from the categories&ndash;&gt;
+            </select>-->
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-7 applicationPanel">
+        <!--INSERT JOBS ARRAY FOR ng-repeat HERE-->
+        <!--<div class="panel panel-default applicationDiv" ng-repeat = "posting in postings | filter :{openingStatus:filterStatus}">-->
+        <div class="panel panel-default applicationDiv" dir-paginate= "posting in postings | filter :{openingStatus:filterStatus} | itemsPerPage:5">
+            <!--<div class="panel-heading applicationHeading">
+                <span class="applicationHeadingText1">Seller:</span><span
+                    class="applicationHeadingText2">{{item.sellerName}}</span>
+            </div>-->
+            <div class="panel-body applicationPaddingHorizontal-0">
+                <div class="row">
+                    <div id="companyImage" class="col-md-3 applicationImageDiv">
+                        <!--<img alt=""	ng-src="{{property.hostProfilePic}}" class="applicationImageStyle">-->
+                        <img alt=""	 ng-src="{{posting.imageUrl}}" class="applicationImageStyle">
+                    </div>
+
+                    <div id="jobDescription" class="col-md-9 applicationDescDiv">
+                        <div class="col-md-7">
+                            <a> <span class="jobName">{{posting.title}}</span>
+                            </a>
+                        </div>
+                        <div class="col-md-5 applicationDescDiv"
+                             style="">
+                            <button type="button" class="btn btn-warning pull-left" ng-click="viewApplicants(posting.id)" style="margin-bottom:5px;    width: 130px;">View Applicants</button>
+                        </div>
+
+                    </div>
+                    <div id="" class="col-md-9 applicationDescDiv">
+                        <div class="col-md-7 applicationDescription" style="height: 30px;">
+                            <span class="pull-left">{{posting.openingStatus}}</span>
+                        </div>
+                        <div class="col-md-5 applicationDescDiv" ng-if="(posting.openingStatus == 'OPEN')">
+                            <button type="button" style="margin-bottom:5px;    width: 130px;" class="btn btn-success pull-left" ng-click="editPosting(posting.id)">Edit Job Posting</button>
+                        </div>
+
+                        <div class="col-md-7 " style="height: 30px;">
+                            <span class="pull-left">{{posting.location}}</span>
+                        </div>
+
+                        <div class="col-md-5 applicationDescDiv" ng-if="(posting.openingStatus != 'CANCELLED') && (posting.openingStatus != 'FILLED') ">
+                            <button type="button" style="min-height: 20px;" class="btn btn-danger pull-left"   ng-click="cancelPosting(posting.id)">Cancel Job Posting</button>
+                        </div>
+
+                        <div class="col-md-7 " style="height: 30px;">
+                            <span class="pull-left">{{posting.minSalary}} - {{posting.maxSalary}}</span>
+                        </div>
+                        <div class="col-md-5 applicationDescDiv" >
+                            <button type="button" style="min-height: 20px;margin-top: 5px;" class="btn btn-primary pull-left" ng-click="showInterviews(posting.id)">Scheduled Interviews</button>
+                        </div>
+                        <div class="col-md-12 " style="height: 30px;">
+                            <span class="pull-left">{{posting.description | limitTo:500}}</span>
+                        </div>
+                        <div class="col-md-12 " style="height: 50px;text-align: left;line-height: 20px;font-size: 15px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                            {{posting.responsibility | limitTo:500}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+
+    <div class="col-md-12">
+        <dir-pagination-controls
+                max-size="5"
+                direction-links="true"
+                boundary-links="true" >
+        </dir-pagination-controls>
+    </div>
+</div>

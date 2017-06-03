@@ -1,0 +1,149 @@
+<div ng-include src="'templates_view/headerApplicant.html'"></div>
+
+<div class="applicationBgDiv"></div>
+<div class="error-msg" ng-hide="error">
+    <strong>There was some problem while submitting. Try Agaon !</strong>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7 openingPanel">
+        <div class="panel-body applicationPaddingHorizontal-0">
+            <div class="row">
+                <div id="companyImage" class="col-md-3 applicationImageDiv">
+                    <!--<img alt=""	ng-src="{{property.hostProfilePic}}" class="applicationImageStyle">-->
+                    <img alt=""	ng-src="{{opening.imageUrl}}" class="applicationImageStyle">
+                </div>
+
+                <div id="jobDescription" class="col-md-9 applicationDescDiv">
+                    <div class="col-md-7">
+                        <a> <span class="jobName">{{opening.title}}</span>
+                        </a>
+                    </div>
+                </div>
+                <div id="" class="col-md-9 applicationDescDiv">
+                    <div class="col-md-12 applicationDescription" style="height: 30px;">
+                        <span class="pull-left">{{opening.company}}</span>
+                    </div>
+                    <div class="col-md-12 " style="height: 30px;">
+                        <span class="pull-left">{{opening.location}}</span>
+                    </div>
+                    <div class="col-md-12 " style="height: 30px;">
+                        <span class="pull-left">Posted on: {{opening.date  | date:'MM-dd-yyyy'}}</span>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div ng-hide="applyprofilebutton" class="col-md-4 applicationDescDiv" style="top: 45px;">
+                        <button type="button" class="btn btn-success pull-left"   ng-click="applyWithProfile(opening.opening_id)">Apply with Profile</button>
+                    </div>
+                    <!--<div ng-hide="applyresumebutton"class="col-md-4 applicationDescDiv" style="top: 45px;">-->
+                        <!--<button type="button" data-toggle="modal" data-target="#attachResume"  class="btn btn-warning pull-left" >Apply with Resume</button>-->
+                    <!--</div>-->
+
+                    <div ng-hide="applyresumebutton"class="col-md-4 applicationDescDiv" style="top: 45px;">
+                        <button type="button"  class="btn btn-warning pull-left"  ng-click="applywith()">Apply with Resume</button>
+                    </div>
+
+                    <div ng-show="showResumeTemplate" >
+                        <button type="file" ngf-select ng-model="resumeObj" name="resumeObj" style="height: 30px;"
+                                ngf-max-size="4MB" required
+                                ngf-model-invalid="errorFile"   ngf-pattern="'.doc,.pdf,.docx'" > Browse Resume </button>
+
+                        <div class="col-sm-12 field-margin">
+                            <button type="submit" style=" width: 100px; margin-left:400px;height: 30px;margin-bottom: 4px;margin-top: 4px;"
+                                    class="btn btn-primary btnLayout"  ng-click="uploadResume(resumeObj)">Upload</button>
+                        </div>
+
+
+
+                        <div class="col-sm-12 field-margin">
+                            <button type="submit" style=" width: 100px; margin-left:400px;height: 30px;"
+                                    class="btn btn-primary btnLayout" ng-disabled="changeStatus" ng-click="applyWithResume()">Apply</button>
+                        </div>
+
+                    </div>
+
+
+
+                    <div ng-show="alreadyApplied" class="col-md-4 applicationDescDiv" style="top: 45px;">
+                        <button type="button" data-toggle="modal" data-target="#attachResume" disabled class="btn btn-primary pull-left">Applied</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-7 applicationPanel" style="text-align: left;">
+        <div class="pull-left col-md-12">
+            <div class="col-md-12 jobDetailHeader">Job Description</div>
+            <div class="col-md-12">
+                <span>{{opening.description}}</span>
+            </div>
+        </div>
+        <hr/>
+        <div class="pull-left col-md-12">
+            <div class="col-md-12 jobDetailHeader">Responsibilites</div>
+            <div class="col-md-12">
+                <span>{{opening.responsibilites}}</span>
+            </div>
+        </div>
+        <hr/>
+        <div class="pull-left col-md-12">
+            <div class="col-md-12 jobDetailHeader">Salary Offered</div>
+            <div class="col-md-12">
+                <span>{{opening.minSalary}} - {{opening.maxSalary}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+
+
+<div class="modal fade" id="attachResume" role="dialog">
+    <div class="modal-dialog" style="width: 90%;">
+
+
+        <!-- Modal content-->
+        <div class="modal-content" style="margin-right: auto;margin-left: auto;height: 40%; width: 50%;background: linear-gradient(rgba(1,0,0,0.9), rgba(1,0,0,0.75))	">
+            <div class="modal-header modalHeader">
+                <div class="modal-title col-md-6" style="color: #ffffff;">Attach your Resume</div>
+                <div class="col-md-6 pull-right"><button type="button" class="close" data-dismiss="modal" style="color: #ffffff;">&times;</button></div>
+            </div>
+
+            <div class="modal-body" style="height: 100%">
+                <div class="resumeAttachModal">
+
+                    <div>
+                        <form class="form-group" action="" method="">
+
+
+                            <button type="file" ngf-select ng-model="resumeObj" name="file"
+                                     ngf-max-size="4MB" required
+                                    ngf-model-invalid="errorFile"   ngf-pattern="'.doc,.pdf,.docx'" > Browse {{resumeObj}}</button>
+
+
+                            <div class="col-sm-12 field-margin">
+                                <button type="submit" style="width: 100%"
+                                        class="btn btn-primary btnLayout" ng-click="uploadResume(resumeObj)">Upload</button>
+                            </div>
+
+
+
+                            <div class="col-sm-12 field-margin">
+                                <button type="submit" style="width: 100%"
+                                        class="btn btn-primary btnLayout" ng-disabled="changeStatus" ng-click="applyWithResume()">Apply</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

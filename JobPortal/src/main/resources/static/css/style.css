@@ -1,0 +1,250 @@
+.body-dashboard{
+    background-color: rgb(245,245,245) !important;
+    min-height:700px;
+    height: auto;
+
+    /* max-height: auto; */
+}
+
+/*
+    Styling for Login and Register Page
+
+ */
+.bglogindiv{
+    
+    background-image: url("../images/jp.jpg");
+    /*height: 675px;*/
+    background-size: cover;
+
+
+}
+.logoimage{
+    width: 100px;
+    padding: 5px;
+    height: 55px;
+}
+
+
+
+.arrow{
+    font-size: 18px;
+}
+
+.loginerror{
+	padding-left: 15px;
+
+	 color: red;
+}
+.regsucc{
+padding-left: 15px;
+
+	 color: green;
+
+}
+
+.tabs-style{
+ font-size: 20px;
+}
+
+
+
+label {
+ color: #ff6666;
+ font-weight: bold;
+ display: block;
+ font-size: 17px;
+ float: left;
+}
+
+.loginregister { 
+
+    font-family: "Helvetica neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    height: 650px;
+}
+
+.navColor{
+ background: rgb(238, 238, 238) none repeat scroll 0 0;
+}
+
+.navBorder{
+ border: 1px solid #ccc; 
+ border-radius: 3px;
+ width: 350px;
+
+    background-color: #f8f8f8;
+
+}
+
+.signin{
+ background: #fff none repeat scroll 0 0;
+    margin: auto;
+    width: 100%;
+    height: 235px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.custombutton{
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    opacity: 2.0;
+    height: 40px !important;
+    width: 100% !important;
+}
+
+.divregister{
+ background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: auto;
+    width: 100%;
+    height: 300px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.registernames{
+
+    padding-left: 3px !important;
+    padding-right: 3px !important;
+}
+
+ 
+
+.field-margin{ 
+  margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+ }
+
+ .box{ 
+  margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+ }
+
+
+
+.width-50{
+ width: 50%;
+}
+
+
+
+/* Styling  for Header*/
+
+.customnavbar {
+ min-height:32px !important
+
+}
+.customnavbar-nav{
+   background-color: black
+ 
+}
+.customnavbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+#ebay{
+  color :white;
+}
+#hi{
+  color :white;
+}
+
+/* Styling for ebay Image on Bid Page */
+
+
+/*Styling for homepage body*/
+.homepagebody,.successview{
+background-color:#F5F5F5;
+
+}
+
+/* Styling for Sell form*/
+.sellform{
+
+width: 60% !important;
+margin-bottom: 50px;
+font-family: "Helvetica neue",Helvetica,Arial,Sans-serif;
+}
+.selldescribe{
+
+
+}
+.classbox{
+    border: 2px solid #ddd!important;
+    border-radius: 20px!important;
+    background-color: #fff!important;
+    padding: 17px 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: 130px;
+
+}
+.modifiedcontrol-label{
+	padding-top: 7px!important;
+    margin-bottom: 0!important;
+    text-align: left!important;
+}
+.sellbutton{
+padding-left: 0!important;
+
+
+}
+
+.itemlist{
+padding-left: 15px;
+color: green;
+font-size: 18px;
+
+}
+.customautcion{
+    margin-left: 180px;
+}
+
+
+
+ 
+/* Styling for View Cart Page
+.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+        width:20%;
+        display: inline !important;
+    }
+    .actions .btn{
+        width:36%;
+        margin:1.5em 0;
+    }
+    
+    .actions .btn-info{
+        float:left;
+    }
+    .actions .btn-danger{
+        float:right;
+    }
+    
+    table#cart thead { display: none; }
+    table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+    table#cart tbody tr td:first-child { background: #333; color: #fff; }
+    table#cart tbody td:before {
+        content: attr(data-th); font-weight: bold;
+        display: inline-block; width: 8rem;
+    }
+    
+    
+    
+    table#cart tfoot td{display:block; }
+    table#cart tfoot td .btn{display:block;}
+    
+}
+
+
+
+
+*/
+
+/*Styling For Profile Page*/

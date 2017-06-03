@@ -1,0 +1,119 @@
+<div ng-include src="'templates_view/headerApplicant.html'"></div>
+
+<div class="bglogindiv">
+
+
+<div class="container-fluid text-center">
+    <div class="col-md-12" style="margin-left: -25px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 searchJobsPanel">
+            <div class="col-md-12 applicantPageHead">Filters</div>
+            <form class="navbar-form" role="search">
+                <div class="col-md-6 input-group add-on pull-left">
+                    <input style="width: 90%;" class="form-control" ng-model="textSearch" placeholder="Enter keyword for Title or Description or Skills" name="companySearch" id="companySearch" type="text">
+                </div>
+                <div class="col-md-6 input-group add-on pull-left">
+                    <input style="width: 90%;" class="form-control" ng-model="companySearchText" placeholder="Enter Company Name(separated by comma)" name="companySearch" id="companySearch" type="text">
+                </div>
+
+                <div class="col-md-6 input-group add-on pull-left" style="margin-top: 10px">
+                    <input style="width: 90%;" class="form-control" ng-model="locationSearchText" placeholder="Enter Location" name="locationSearch" id="locationSearch" type="text">
+                </div>
+
+
+
+                <div class="col-md-12" style="padding-left: 0px;padding-top: 15px;padding-bottom: 15px;">
+                    <div class="col-md-4" style="padding-left: 0px;">
+                        <h4 class="pull-left">Salary Range</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <input style="width: 90%;" class="form-control" ng-model="minSalary" placeholder="Min Salary Range" name="salarymin"  type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <input style="width: 90%;" class="form-control" ng-model="maxSalary" placeholder="Max Salary Range" name="salarymin" type="text">
+                    </div>
+
+                </div>
+                <div class="col-md-12 input-group add-on pull-left" style="margin-top: 10px">
+                    <button class="btn btn-warning pull-right" ng-click="filterResults()">Filter Results</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="col-md-12" style="margin-left: -25px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 applicationPanel">
+            <div class="col-md-12 applicantPageHead" style="color:ghostwhite">Search Results</div>
+            <!--INSERT JOBS ARRAY FOR ng-repeat HERE-->
+
+            <!--<div class="col-md-12 applicationDiv" ng-repeat="opening in openingsList">-->
+
+                <div class="col-md-12 applicationDiv" dir-paginate="opening in filteredOpenings | filter:{'status':'OPEN'} | itemsPerPage:itemsPerPage" total-openings="{{total_count}} ">
+
+
+
+                    <!--<div class="panel-heading applicationHeading">
+                    <span class="applicationHeadingText1">Seller:</span><span
+                        class="applicationHeadingText2">{{item.sellerName}}</span>
+                </div>-->
+                <div class="panel-body applicationPaddingHorizontal-0">
+                    <div class="row">
+                        <div id="companyImage" class="col-md-3 applicationImageDiv">
+                            <!--<img alt=""	ng-src="{{property.hostProfilePic}}" class="applicationImageStyle">-->
+                            <img alt=""	ng-src="{{logoList[$index]}}" class="applicationImageStyle">
+                        </div>
+
+                        <div id="jobDescription" class="col-md-9 applicationDescDiv">
+                            <div class="col-md-7">
+                                <a> <span class="jobName">{{opening.title}}</span>
+                                </a>
+                            </div>
+                            <div class="col-md-2 applicationDescDiv"
+                                 style="">
+                                <button type="button" class="btn btn-success pull-left" ng-click="applyForJob(opening.opening_id)">Apply</button>
+                            </div>
+                            <div class="col-md-3 applicationDescDiv"
+                                 style="">
+                                <button type="button" class="btn btn-warning pull-left" ng-click="">Add to Interests</button>
+                            </div>
+                        </div>
+                        <div id="" class="col-md-9 applicationDescDiv">
+                            <!--<div class="col-md-12 applicationDescription" style="height: 30px;">
+                                <span class="pull-left">SoundHound Inc.</span>
+                            </div>-->
+                            <div class="col-md-12 " style="height: 30px;">
+                                <span class="pull-left">{{opening.location}}</span>
+                            </div>
+                            <div class="col-md-12 " style="height: 30px;">
+                                <span class="pull-left">{{opening.minSalary}}</span>
+                            </div>
+                            <div class="col-md-12 " style="height: 50px;text-align: left;line-height: 20px;font-size: 15px;">
+                                {{opening.description | limitTo:500}}<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <dir-pagination-controls
+                    max-size="8"
+                    direction-links="true"
+                    boundary-links="true"
+                    on-page-change="filterPageNumber(newPageNumber)">
+            </dir-pagination-controls>
+
+
+            <!--<div class="pull-left" ng-show="previousBtn">-->
+                <!--<button class="btn btn-default" ng-click="clickPrevious()">Previous</button>-->
+            <!--</div>-->
+            <!--<div class="pull-right" ng-show="nextButton">-->
+                <!--<button class="btn btn-default" ng-click="clickNext()">Next</button>-->
+            <!--</div>-->
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+</div>

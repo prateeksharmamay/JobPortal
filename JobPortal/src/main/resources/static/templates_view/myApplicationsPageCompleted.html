@@ -1,0 +1,96 @@
+
+
+<div ng-include src="'templates_view/headerApplicant.html'"></div>
+
+
+<div class="page-container-responsive space-top-4 space-4 bglogindiv">
+    <div class="row triphistoryrow">
+        <div class="col-md-3" style="padding-left: 80px;">
+
+            <ul class="sidenav-list" style="  margin-top: 70px;">
+                <li style="list-style-type: none;">
+                    <a class="yourtrips"  style="text-decoration: none;color: white;line-height: 30px; margin-left: -15px;" ui-sref="myApplicationsPage">Pending </a>
+                </li>
+                <li style="list-style-type: none;">
+                    <a class= "active" style="text-decoration: none;color: white;font-weight:bold;line-height: 30px;"  ui-sref="myApplicationsPageCompleted">Completed </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="col-md-9 tripsdiv">
+
+            <div class="col-md-12" style="    margin-left: -25px;">
+                <div class="col-md-2"></div>
+                <div class="col-md-7 applicantPageHead" style="color: white;margin-left: -160px;"><span>Completed Applications</span></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-12 applicationPanel" style="min-height: 0px !important;" ng-repeat="application in applications | filter: terminalStatus ">
+                <!--INSERT JOBS ARRAY FOR ng-repeat HERE-->
+                <div class="panel panel-default applicationDiv" >
+
+                    <div class="panel-body applicationPaddingHorizontal-0">
+                        <div class="row">
+                            <div id="companyImage" class="col-md-3 applicationImageDiv">
+                                <img alt=""	ng-src="{{application.openingurl}}" class="applicationImageStyle">
+                            </div>
+
+                            <div id="jobDescription" class="col-md-9 applicationDescDiv">
+                                <div class="col-md-7">
+                                    <span class="jobName">{{application.opening.title}}</span>
+                                    </a>
+                                </div>
+
+
+                                <div class="[ form-group ]">
+
+                                    <input type="checkbox" style="display:inline" ng-model="application.selected"  value="{{application.application_id}}" autocomplete="off" />
+
+                                    <!--<input type="checkbox" name="selectedApps"  value="{{application.application_id}}" autocomplete="off" />-->
+                                    <!--<div class="[ btn-group ]">-->
+                                        <!--<label for="fancy-checkbox-success" class="[ btn btn-success ]">-->
+                                            <!--<span class="[ glyphicon glyphicon-ok ]"></span>-->
+                                            <!---->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                            <div id="" class="col-md-9 applicationDescDiv">
+                                <div class="col-md-12 applicationDescription" style="height: 30px;">
+                                    <span class="pull-left">{{application.companyName}}</span>
+                                </div>
+                                <div class="col-md-12 " style="height: 30px;">
+                                    <span class="pull-left">{{application.opening.location}}</span>
+                                </div>
+                                <div class="col-md-12 " style="height: 30px;">
+                                    <span class="pull-left">Posted on: {{application.opening.date | date:'MM-dd-yyyy'}}</span>
+                                </div>
+                                <div class="col-md-12 " style="height: 30px;">
+                                    <span class="pull-left">Applied on: {{application.apply_date | date:'MM-dd-yyyy'}}</span>
+                                </div>
+                                <div class="col-md-12 " style="height: 30px;">
+                                    <span class="pull-left"><strong>Status: {{application.applicationStatus}}</strong></span>
+                                </div>
+                                <!--<div class="col-md-12 " style="height: 50px;text-align: left;">-->
+                                <!--SoundHound is creating and productizing transformative technologies that improve life. Join us.-->
+                                <!--After amassing a global user community well over 265 million strong, a large portfolio of core technologies and award winning products....we're just getting started.<br>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 applicationDescDiv"></div>
+            </div>
+
+
+            <div class="col-md-3"></div>
+
+        </div>
+
+
+
+    </div>
+
+</div>

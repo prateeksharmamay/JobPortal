@@ -1,0 +1,102 @@
+<div ng-include src="'templates_view/headerApplicant.html'"></div>
+
+<h1>Edit Profile</h1>
+
+<div class="bglogindiv" style="height: inherit;">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-7" style="margin-left: -20px;">
+
+            <div class="form-box">
+                <div class="form-top" style="background: rgba(0, 0, 0, 0.35);">
+                    <div class="form-top-left">
+                        <h3>Complete your profile</h3>
+                        <p>Helps Recruiters to know more about you</p>
+                    </div>
+                    <div class="form-top-right">
+                        <!--<span class="" style="border-radius: 50%">-->
+                        <!--<img alt="" ng-src=""  src= "../images/5.jpg" class="profilePicStyle">-->
+                        <!--</span>-->
+
+                    </div>
+                </div>
+                <div class="form-bottom" style="background: rgba(0, 0, 0, 0.3);margin-bottom: 80px;">
+                    <form role="form" class="registration-form">
+                        <div class="form-group">
+                            <label class="sr-only" for="form-first-name">First name</label>
+                            <input type="text" ng-model="userprofile.firstName" value={{userprofile.firstName}} name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-last-name">Last name</label>
+                            <input type="text" ng-model="userprofile.lastName" value={{userprofile.lastName}} name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-about-yourself">Introduction</label>
+                            <textarea ng-model="userprofile.introduction" value={{userprofile.introduction}} name="form-about-yourself" placeholder="Tell us about yourself..."
+                                      class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-about-yourself">Work Experience</label>
+                            <textarea ng-model="userprofile.experience" value={{userprofile.experience}} name="form-about-yourself" placeholder="Past Work Experience.."
+                                      class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-about-yourself">Education</label>
+                            <textarea ng-model="userprofile.education" value={{userprofile.education}} name="form-about-yourself" placeholder="Your Education..."
+                                      class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="form-about-yourself">Skills</label>
+                            <textarea ng-model="userprofile.skills" value={{userprofile.skills }} name="form-about-yourself" placeholder="Skills..."
+                                      class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+                        </div>
+                        <button class="btn btn-primary" ng-click="updateProfile()">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="picImagediv">
+                        <span class="" style="border-radius: 50%">
+                            <div>
+                                <img  style="max-width: none;" ng-src={{userprofile.imageUrl}} class="profilePicStyle">
+                            </div>
+
+                        </span>
+
+            </div>
+
+                <button   type="file" ngf-select ng-model="picFile" name="file"
+                          accept=".png,.jpg,.jpeg" ngf-max-size="2MB" required
+                          ngf-model-invalid="errorFile"   ngf-pattern="'.jpg,.png,.jpeg'"  class="btn btn-default btn-block changepicButton"  ><strong style="word-break: break-all;"><strong>Change Profile Pic</strong></strong></button>
+
+                <i class=" upload-required" ng-show="editImageForm.file.$error.required">*required</i><br>
+                <i class=" upload-error" ng-show="editImageForm.file.$error.pattern">File should be of the format *.jpg *.png *.jpeg</i><br>
+                <i class=" upload-error" ng-show="editImageForm.file.$error.maxSize">File too large
+                    {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+
+            <div>
+                <br>
+                <button class="savepicButton btn  btn-default btn-block "    ng-click="uploadImage(picFile)"><strong>Save Profile Pic</strong></button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+

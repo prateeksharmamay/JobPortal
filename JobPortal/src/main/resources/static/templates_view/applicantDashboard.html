@@ -1,0 +1,69 @@
+
+<div ng-include src="'templates_view/headerApplicant.html'"></div>
+
+<div class="container-fluid text-center bglogindiv" style="height: inherit;">
+    <div class="col-md-12" style="    margin-left: -25px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-7 applicantPageHead"><span style="color:white">Recent Jobs</span></div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-7 applicationPanel">
+        <!--INSERT JOBS ARRAY FOR ng-repeat HERE-->
+        <!--<div class="panel panel-default applicationDiv" ng-repeat="opening in openingsList | filter:{'status':'OPEN'}">-->
+            <div class="panel panel-default applicationDiv"  dir-paginate="opening in openingsList | filter:{'status':'OPEN'} | itemsPerPage:5">
+
+            <div class="panel-body applicationPaddingHorizontal-0">
+                <div class="row">
+                    <div id="companyImage" class="col-md-3 applicationImageDiv">
+                        <!--<img alt=""	ng-src="{{property.hostProfilePic}}" class="applicationImageStyle">-->
+                        <img alt=""	 ng-src="{{logoList[$index]}}" class="applicationImageStyle">
+                    </div>
+
+                    <div id="jobDescription" class="col-md-9 applicationDescDiv">
+                        <div class="col-md-7">
+                            <a> <span class="jobName">{{opening.title}}</span>
+                            </a>
+                        </div>
+                        <div class="col-md-2 applicationDescDiv"
+                             style="">
+                            <button type="button" class="btn btn-success pull-left" ng-click="applyForJob(opening.opening_id)">Apply</button>
+                        </div>
+                        <div class="col-md-3 applicationDescDiv"
+                             style="" ng-if="validateInterest(opening.opening_id) == 'false'">
+                            <button type="button" class="btn btn-warning pull-left" ng-click="addToInterestedJobs(opening.opening_id)">Save</button>
+                        </div>
+                        <div class="col-md-3 applicationDescDiv"
+                             style="" ng-if="validateInterest(opening.opening_id) == 'true'">
+                            <button type="button" class="btn btn-danger pull-left" ng-click="deleteFromInterestedJobs(opening.opening_id)">Unsave</button>
+                        </div>
+                    </div>
+                    <div id="" class="col-md-9 applicationDescDiv">
+                        <!--<div class="col-md-12 applicationDescription" style="height: 30px;">-->
+                            <!--<span class="pull-left">{{opening.responsibilities | limitTo: 4}}</span>-->
+                        <!--</div>-->
+                        <div class="col-md-12 " style="height: 30px;">
+                            <span class="pull-left">{{opening.location}}</span>
+                        </div>
+                        <div class="col-md-12 " style="height: 30px;">
+                            <span class="pull-left">{{opening.minSalary}}</span>
+                        </div>
+                        <div class="col-md-12 " style="height: 50px;text-align: left;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                            {{opening.description | limitTo:500}}<br>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-12">
+        <dir-pagination-controls
+                max-size="5"
+                direction-links="true"
+                boundary-links="true" >
+        </dir-pagination-controls>
+    </div>
+
+</div>
